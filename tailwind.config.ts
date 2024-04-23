@@ -14,6 +14,9 @@ const config: Config = {
         'restaurant-accent': '#9E2B25',
         'restaurant-neutral': '#FFFFFF',
       },
+      backgroundImage: {
+        'my-custom-image': "url('/images/home-header.jpg')",
+      }
     },
   },
   plugins: [],
