@@ -5,7 +5,6 @@
 - [x] Set up the project environment
 - [x] Setting up our Database (Vercel PostgreSQL)
 - [x] Create the project structure
-- [] Create the main application
 - [] Create the main layout
 - [] Create Home Page
 - [] Create About, Contact, Privacy, and Terms Page
