@@ -3,7 +3,7 @@
 ## TODO
 
 - [x] Set up the project environment
-- [] Setting up our Database
+- [x] Setting up our Database (Vercel PostgreSQL)
 - [] Create the project structure
 - [] Create the main application
 - [] Create the main layout
@@ -21,6 +21,6 @@
 - [] Add SEO
 - [] Add PWA (Progressive Web App) Features
 - [] Error management Sentry
-- [] Deploy on Vercel
+- [x] Deploy on Vercel
 
 
