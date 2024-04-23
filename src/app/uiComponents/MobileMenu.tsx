@@ -1,8 +1,10 @@
 import Link from "next/link";
+
 interface MobileMenuProps {
   isOpen: boolean;
   toggleMenu: () => void;
 }
+
 
 const MobileMenu = ({ isOpen, toggleMenu }: MobileMenuProps) => {
   return (
