@@ -10,7 +10,12 @@ import SearchBar from "./Searchbar";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const isSmallDevice = useMemo(() => window.innerWidth < 768, []);
+  const isSmallDevice = useMemo(() => {
+    if (typeof window !== 'undefined') {
+        return window.innerWidth < 768;
+    }
+    return false; 
+}, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
