@@ -9,16 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'restaurant-primary': '#232323',
-        'restaurant-secondary': '#D4AF37',
-        'restaurant-accent': '#9E2B25',
-        'restaurant-neutral': '#FFFFFF',
+        "restaurant-primary": "#232323",
+        "restaurant-secondary": "#D4AF37",
+        "restaurant-accent": "#9E2B25",
+        "restaurant-neutral": "#FFFFFF",
       },
       backgroundImage: {
-        'my-custom-image': "url('/images/home-header.jpg')",
-      }
+        "my-custom-image": "url('/images/home-header.jpg')",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animated")],
 };
 export default config;

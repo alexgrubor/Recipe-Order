@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={'bg-restaurant-neutral'}>
         <Header />
         <main className="min-h-screen bg-restaurant-neutral">{children}</main>
         <Footer />
