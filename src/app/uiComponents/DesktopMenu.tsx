@@ -5,10 +5,10 @@ const DesktopMenu = () => {
     <ul className="flex items-center gap-12">
       <li>
         <Link
-          href="/"
+          href="/how-it-works"
           className=" hover:text-restaurant-secondary transition duration-300 ease-in-out"
         >
-          Home
+          How it works
         </Link>
       </li>
       <li>

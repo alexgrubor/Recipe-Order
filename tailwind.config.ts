@@ -16,6 +16,7 @@ const config: Config = {
       },
       backgroundImage: {
         "my-custom-image": "url('/images/home-header.jpg')",
+        "my-custom-image-2": "url('/images/how-it-works-header.jpg')",
       },
     },
   },
