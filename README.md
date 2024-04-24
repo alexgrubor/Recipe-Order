@@ -5,10 +5,10 @@
 - [x] Set up the project environment
 - [x] Setting up our Database (Vercel PostgreSQL)
 - [x] Create the project structure
-- [] Create the main layout
-- [] Create Home Page
-- [] Create About, Contact, Privacy, and Terms Page
-- [] Create Recipe Page with basic information (ingredients, instructions)
+- [x] Create the main layout
+- [x] Create Home Page
+- [x] Create About, Contact, Privacy, and Terms Page
+- [x] Create Recipe Page with basic information (ingredients, instructions)
 - [] Create Order Page ( with form, validation, and submit)
 - [] Implement Stripe Payment Gateway
 - [] Create Order Confirmation Page

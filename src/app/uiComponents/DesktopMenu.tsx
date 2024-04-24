@@ -29,7 +29,7 @@ const DesktopMenu = () => {
       </li>
       <li>
         <Link
-          href="/menu"
+          href="/menus"
           className=" hover:text-restaurant-secondary transition duration-300 ease-in-out"
         >
           Menu
