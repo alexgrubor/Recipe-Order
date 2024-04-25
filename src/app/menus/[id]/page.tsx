@@ -2,7 +2,7 @@
 import { useParams } from "next/navigation";
 import useFetchSingleRecipe from "@/hooks/useFetchSingleRecipe";
 import { useState, useEffect } from "react";
-
+import useCartStore from "@/utils/store/cardStore";
 const SingleMenu = () => {
 const { id } = useParams();
 const recipeId = Array.isArray(id) ? id[0] : id;
@@ -86,7 +86,15 @@ const [price, setPrice] = useState(0);
               </div>
 
               <div>
-                <button className="bg-restaurant-accent text-restaurant-neutral py-3 px-6 rounded font-medium hover:bg-restaurant-neutral hover:border-2 hover:text-restaurant-accent hover:border-restaurant-accent">
+                <button className="bg-restaurant-accent text-restaurant-neutral py-3 px-6 rounded font-medium hover:bg-restaurant-neutral hover:border-2 hover:text-restaurant-accent hover:border-restaurant-accent" 
+                onClick={() => {
+                  useCartStore.getState().addItem({
+                    id: recipe.idMeal,
+                    name: recipe.strMeal,
+                    price: price,
+                  });
+                }}
+                >
                   {`Added to Cart:  ${price}€`}
                 </button>
                 <button className="border-2 border-restaurant-accent text-restaurant-accent py-3 px-6 rounded font-medium hover:bg-restaurant-accent hover:text-white ml-4">
