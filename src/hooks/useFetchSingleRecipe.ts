@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 
-interface Recipe {
+export interface Recipe {
     idMeal: string;
     strMeal: string;
     strDrinkAlternate: string | null;

@@ -1,32 +1,19 @@
-'use client'
+"use client";
+import Image from "next/image";
 import { useParams } from "next/navigation";
 import useFetchSingleRecipe from "@/hooks/useFetchSingleRecipe";
+import generateRandomPrice from "@/utils/generateRandomPrice";
 import { useState, useEffect } from "react";
 import useCartStore from "@/utils/store/cardStore";
 const SingleMenu = () => {
-const { id } = useParams();
-const recipeId = Array.isArray(id) ? id[0] : id;
+  const { id } = useParams();
+  const recipeId = Array.isArray(id) ? id[0] : id;
 
-const { recipe, isLoading, error } = useFetchSingleRecipe(recipeId ?? "");
-const [price, setPrice] = useState(0);
-
-  const generateRandomPrice = () => {
-    if (!recipe) return;
-    let price = 0;
-
-    const basePrice = 5;
-    const pricePerIngredient = 0.5;
-
-    const numIngredients = recipe.ingredients.length;
-    price = basePrice + numIngredients * pricePerIngredient;
-
-    price = Math.max(price, 1);
-
-    setPrice(price);
-  };
+  const { recipe, isLoading, error } = useFetchSingleRecipe(recipeId ?? "");
+  const [price, setPrice] = useState(0);
 
   useEffect(() => {
-    generateRandomPrice();
+    generateRandomPrice(recipe, setPrice);
   }, [recipe]);
 
   return (
@@ -44,10 +31,11 @@ const [price, setPrice] = useState(0);
 
           <div className="flex flex-col md:flex-row items-start">
             <div className="w-full md:w-1/2 mb-4 md:mb-0 md:mr-8">
-              <img
+              <Image
                 src={recipe.strMealThumb}
                 alt={recipe.strMeal}
-                className="w-full h-64 object-cover rounded-lg shadow-md"
+                height={400}
+                width={300}
               />
             </div>
 
@@ -86,14 +74,15 @@ const [price, setPrice] = useState(0);
               </div>
 
               <div>
-                <button className="bg-restaurant-accent text-restaurant-neutral py-3 px-6 rounded font-medium hover:bg-restaurant-neutral hover:border-2 hover:text-restaurant-accent hover:border-restaurant-accent" 
-                onClick={() => {
-                  useCartStore.getState().addItem({
-                    id: recipe.idMeal,
-                    name: recipe.strMeal,
-                    price: price,
-                  });
-                }}
+                <button
+                  className="bg-restaurant-accent text-restaurant-neutral py-3 px-6 rounded font-medium hover:bg-restaurant-neutral hover:border-2 hover:text-restaurant-accent hover:border-restaurant-accent"
+                  onClick={() => {
+                    useCartStore.getState().addItem({
+                      id: recipe.idMeal,
+                      name: recipe.strMeal,
+                      price: price,
+                    });
+                  }}
                 >
                   {`Added to Cart:  ${price}€`}
                 </button>

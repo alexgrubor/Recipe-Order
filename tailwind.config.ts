@@ -82,6 +82,7 @@ const config = {
         "my-custom-image-2": "url('/images/how-it-works-header.jpg')",
         "my-custom-image-3": "url('/images/about-header.jpg')",
         "my-custom-image-4" : "url('/images/contact-header.jpg')",
+        "my-custom-image-5" : "url('/images/checkout-header.jpg')",
       },
     },
   },
