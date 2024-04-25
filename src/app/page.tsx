@@ -2,6 +2,7 @@ import HeroSection from "./(home)/components/HeroSection";
 import HowItWorks from "./(home)/components/HowItWorks";
 import RecipeCarousel from "./(home)/components/RecipeCarousel";
 import Testimonials from "./(home)/components/Testimonials";
+import OurPartners from "./about/components/OurPartners";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <HowItWorks />
       <RecipeCarousel />
       <Testimonials />
+      <OurPartners/>
     </>
   );
 }

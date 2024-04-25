@@ -24,8 +24,8 @@ const RecipeCarousel = () => {
             Top 5 recipes this week
         </h2>
       </div>
-      <div className="container mx-auto flex justify-center">
-        <Carousel opts={{ align: "start", loop: true }} className="w-full max-w-sm">
+      <div className="container mx-auto flex justify-center p-4 px-7">
+        <Carousel opts={{ align: "start", loop: true }} className="w-[80%] md:w-full max-w-sm">
           <CarouselContent>
             {recipeToDisplay.map((recipe: RecipeFromAPI) => (
               <CarouselItem key={recipe.idMeal} className="">
