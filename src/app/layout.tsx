@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Footer from "./uiComponents/Footer";
-import Header from "./uiComponents/Header";
+import Footer from "./CustomComponents/Footer";
+import Header from "./CustomComponents/Header";
+import CartButton from "./CustomComponents/CartButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen bg-restaurant-neutral">{children}</main>
         <Footer />
+        <CartButton/>
       </body>
     </html>
   );

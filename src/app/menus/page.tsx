@@ -1,4 +1,4 @@
-import RecipeOfDay from "../uiComponents/RecipeOfDay";
+import RecipeOfDay from "../CustomComponents/RecipeOfDay";
 import MenusBYCategory from "./components/MenusBYCategory";
 
 const MenusPage = () => {
