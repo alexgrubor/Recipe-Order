@@ -4,8 +4,8 @@ import "./globals.css";
 import Footer from "./CustomComponents/Footer";
 import Header from "./CustomComponents/Header";
 import CartButton from "./CustomComponents/CartButton";
+import { ClerkProvider } from '@clerk/nextjs'
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Recipe & Order",
@@ -18,6 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body className={'bg-restaurant-neutral'}>
         <Header />
@@ -26,5 +27,6 @@ export default function RootLayout({
         <CartButton/>
       </body>
     </html>
+    </ClerkProvider>
   );
 }

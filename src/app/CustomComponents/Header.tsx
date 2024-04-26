@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useMemo } from "react";
@@ -6,16 +6,17 @@ import debounce from "lodash.debounce";
 import MobileMenu from "./MobileMenu";
 import DesktopMenu from "./DesktopMenu";
 import SearchBar from "./Searchbar";
+import { UserButton } from "@clerk/nextjs";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const isSmallDevice = useMemo(() => {
-    if (typeof window !== 'undefined') {
-        return window.innerWidth < 768;
+    if (typeof window !== "undefined") {
+      return window.innerWidth < 768;
     }
-    return false; 
-}, []);
+    return false;
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -24,7 +25,7 @@ const Header = () => {
   const handleScroll = useMemo(() => {
     return debounce(() => {
       setScrollY(window.scrollY);
-    }, 100); 
+    }, 100);
   }, []);
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const Header = () => {
       backgroundColor: isSmallDevice
         ? "white"
         : `rgba(255, 255, 255, ${scrollY > 0 ? 0.9 : 0})`,
-      color: isSmallDevice ? "black" : scrollY > 0 ? "black" : '#D4AF37',
+      color: isSmallDevice ? "black" : scrollY > 0 ? "black" : "#D4AF37",
     };
   }, [isSmallDevice, scrollY]);
 
@@ -60,6 +61,10 @@ const Header = () => {
       </Link>
       <DesktopMenu />
       {!isSmallDevice && <SearchBar />}
+      <div className="text-3xl">
+        <UserButton showName />
+      </div>
+
       <button
         className="md:hidden"
         onClick={toggleMenu}
