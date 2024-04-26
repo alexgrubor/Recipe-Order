@@ -81,6 +81,8 @@ const SingleMenu = () => {
                       id: recipe.idMeal,
                       name: recipe.strMeal,
                       price: price,
+                      quantity: 1,
+                      imageUrl: recipe.strMealThumb,
                     });
                   }}
                 >
