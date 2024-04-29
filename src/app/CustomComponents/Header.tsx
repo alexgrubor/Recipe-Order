@@ -6,7 +6,7 @@ import debounce from "lodash.debounce";
 import MobileMenu from "./MobileMenu";
 import DesktopMenu from "./DesktopMenu";
 import SearchBar from "./Searchbar";
-import { UserButton } from "@clerk/nextjs";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,7 +62,12 @@ const Header = () => {
       <DesktopMenu />
       {!isSmallDevice && <SearchBar />}
       <div className="text-3xl">
-        <UserButton showName />
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </div>
 
       <button

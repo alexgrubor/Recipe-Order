@@ -1,10 +1,12 @@
 "use client";
 import useCartStore from "@/utils/store/cardStore";
 import Link from "next/link";
+import { useUser } from '@clerk/nextjs';
 
 import CartItem from "./components/CartItem";
 const Cartpage = () => {
   const cartItems = useCartStore((state) => state.items);
+  const { isSignedIn } = useUser();
   return (
     <div className="relative">
       <div className="absolute inset-0 bg-my-custom-image-5 bg-cover bg-center bg-no-repeat bg-fixed brightness-50"></div>
@@ -42,7 +44,27 @@ const Cartpage = () => {
                 0
               )}
             </p>
+            <p>{
+              isSignedIn ? (
+                <Link
+                  href="/checkout"
+                  className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-md hover:bg-blue-700"
+                >
+                  Proceed to Checkout
+                </Link>
+              ) : (
+                <Link
+                  href="/sign-in"
+                  className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-md hover:bg-blue-700"
+                >
+                  Sign in to Checkout
+                </Link>
+              )
+              }</p>
           </div>
+        </div>
+        <div>
+          
         </div>
       </div>
     </div>

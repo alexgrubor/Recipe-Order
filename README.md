@@ -10,8 +10,8 @@
 - [x] Create About, Contact, Privacy, and Terms Page
 - [x] Create Recipe Page with basic information (ingredients, instructions)
 - [x] Create a Cart with basic information (add quantity, delete)
-- [] Create User Authentication (Sign Up, Sign In, Sign Out) using Clerk 
-- [] Create User Profile Page
+- [x] Create User Authentication (Sign Up, Sign In, Sign Out) using Clerk 
+- [x] Create User Profile Page
 - [] Create Order Page ( with form, validation, and submit)
 - [] Implement Stripe Payment Gateway
 - [] Create Order Confirmation Page

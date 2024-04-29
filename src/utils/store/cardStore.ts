@@ -2,7 +2,7 @@
 import { create, StateCreator } from "zustand";
 import { persist, PersistOptions } from "zustand/middleware";
 
-interface CartItem {
+export interface CartItem {
   id: number | string;
   imageUrl: string;
   name: string;
