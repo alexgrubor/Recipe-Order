@@ -8,7 +8,7 @@ import { CartItem } from "@/utils/store/cardStore";
 interface Order {
   id: string;
   status: string;
-  items: CartItem;
+  items: CartItem[];
 }
 
 const Order = () => {
