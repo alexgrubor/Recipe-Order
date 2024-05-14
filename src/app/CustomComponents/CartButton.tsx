@@ -2,8 +2,13 @@
 import Link from "next/link";
 import { IoMdCart } from "react-icons/io";
 import useCartStore from "@/utils/store/cardStore";
+import { usePathname } from "next/navigation";
 const CartButton = () => {
   const cartItems = useCartStore((state) => state.items);
+  const pathname = usePathname();
+  if (pathname === "/cart") {
+    return null;
+  }
   return (
     <div className="fixed bottom-2 right-10 bg-restaurant-neutral p-2 rounded-full shadow-md shadow-black border-2 border-restaurant-primary/50">
       <Link href={'/cart'} className="flex items-center gap-3 relative p-2">
