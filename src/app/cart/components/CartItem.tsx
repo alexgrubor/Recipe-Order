@@ -1,5 +1,7 @@
-import Image from "next/image";
 
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { FaTrash } from "react-icons/fa6";
 interface CartItemProps {
   item: {
     id: number | string;
@@ -12,8 +14,22 @@ interface CartItemProps {
 }
 
 const CartItem = ({ item, useCartStore }: CartItemProps) => {
+
+  const handleQuantityChange = (newQuantity: number) => {
+    if (newQuantity <= 0) {
+      useCartStore.getState().removeItem(item.id);
+      return;
+    }
+    useCartStore.getState().updateQuantity(item.id, newQuantity);
+  };
   return (
-    <div key={item.id} className="border border-gray-200 p-4 rounded-md">
+    <motion.div
+      key={item.id}
+      className="border border-gray-200 p-4 rounded-md"
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.3 }}
+    >
       <div className="flex items-center gap-4">
         <Image
           src={item.imageUrl}
@@ -31,37 +47,34 @@ const CartItem = ({ item, useCartStore }: CartItemProps) => {
       <div className="mt-4 flex items-center gap-2">
         <p>Quantity:</p>
         <div className="flex items-center border border-gray-300 rounded">
-          <button
+          <motion.button
             className="px-3 py-2 hover:bg-gray-100"
-            onClick={() =>
-              useCartStore
-                .getState()
-                .updateQuantity(item.id, Math.max(item.quantity - 1, 0))
-            }
+            onClick={() => handleQuantityChange(Math.max(item.quantity - 1, 0))}
+            whileTap={{ scale: 0.8 }}
           >
             -
-          </button>
+          </motion.button>
           <span className="px-3">{item.quantity}</span>
-          <button
+          <motion.button
             className="px-3 py-2 hover:bg-gray-100"
-            onClick={() =>
-              useCartStore.getState().updateQuantity(item.id, item.quantity + 1)
-            }
+            onClick={() => handleQuantityChange(item.quantity + 1)}
+            whileTap={{ scale: 1.3 }}
           >
             +
-          </button>
+          </motion.button>
         </div>
         <p className="ml-4">
           Total: &euro;{(item.price * item.quantity).toFixed(2)}
         </p>
-        <button
+        <motion.button
           className="ml-4 bg-restaurant-accent text-white px-3 py-2 rounded hover:bg-red-800"
           onClick={() => useCartStore.getState().removeItem(item.id)}
+          whileTap={{ scale: 0.95 }}
         >
-          Remove
-        </button>
+          <FaTrash size={23} />
+        </motion.button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 export default CartItem;

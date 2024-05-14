@@ -52,7 +52,7 @@ const CartPage = () => {
                   {total > 0 && isSignedIn && (
                     <Link
                       href="/checkout"
-                      className="bg-restaurant-secondary text-restaurant-primary px-4 py-2 mt-4 rounded-md "
+                      className="bg-restaurant-secondary text-restaurant-primary px-6 py-2 mt-4 rounded-md hover:bg-restaurant-secondary/85 font-bold"
                     >
                       Proceed to Checkout
                     </Link>
@@ -61,7 +61,7 @@ const CartPage = () => {
                   {total > 0 && !isSignedIn && (
                     <Link
                       href="/sign-in"
-                      className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-md hover:bg-blue-700"
+                      className="bg-restaurant-secondary text-restaurant-primary px-6 py-2 mt-4 rounded-md hover:bg-restaurant-secondary/85 font-bold"
                     >
                       Sign in to Checkout
                     </Link>
